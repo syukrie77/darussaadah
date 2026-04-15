@@ -1,5 +1,8 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import profilData from "../../data/profil.json";
+
+const sambutanParagraphs = profilData.sambutan.split("\n\n").filter(Boolean);
 ---
 
 <MainLayout title="Profil Sekolah | SMK Bina Mandiri Kutabumi">
@@ -11,29 +14,24 @@ import MainLayout from "../../layouts/MainLayout.astro";
         Profil Sekolah
       </h1>
 
-      <!-- Profil Sekolah -->
+      <!-- Perkenalan & Info Sekolah -->
       <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
         <div>
           <p class="text-gray-700 leading-relaxed mb-4">
-            SMK Bina Mandiri Kutabumi adalah sekolah kejuruan yang berfokus
-            pada metode pembelajaran full praktik untuk membekali peserta
-            didik dengan keterampilan siap kerja.
+            {profilData.intro1}
           </p>
-
           <p class="text-gray-700 leading-relaxed">
-            Dengan tenaga pendidik profesional dan fasilitas modern, sekolah kami
-            mempersiapkan peserta didik untuk menghadapi tantangan global
-            secara kompeten dan berkarakter.
+            {profilData.intro2}
           </p>
         </div>
 
         <div class="bg-white rounded-2xl shadow p-6">
           <ul class="space-y-3 text-gray-700">
             <li><strong>Nama Sekolah:</strong> SMK Bina Mandiri Kutabumi</li>
-            <li><strong>NPSN:</strong> 12345678</li>
-            <li><strong>Status:</strong> Swasta</li>
-            <li><strong>Akreditasi:</strong> A</li>
-            <li><strong>Tahun Berdiri:</strong> 2010</li>
+            <li><strong>NPSN:</strong> {profilData.npsn}</li>
+            <li><strong>Status:</strong> {profilData.status}</li>
+            <li><strong>Akreditasi:</strong> {profilData.akreditasi}</li>
+            <li><strong>Tahun Berdiri:</strong> {profilData.tahun_berdiri}</li>
           </ul>
         </div>
       </div>
@@ -45,52 +43,20 @@ import MainLayout from "../../layouts/MainLayout.astro";
         </h2>
 
         <div class="grid md:grid-cols-3 gap-8 items-start">
-          <!-- Foto Kepala Sekolah -->
           <div class="flex justify-center">
             <img
-              src="/images/kepala-sekolah.png"
-              alt="Kepala Sekolah SMK Bina Mandiri Kutabumi"
+              src={profilData.kepala_sekolah_foto}
+              alt={`Foto ${profilData.kepala_sekolah_nama}`}
               class="w-48 h-auto rounded-xl shadow"
             />
           </div>
 
-          <!-- Teks Sambutan -->
           <div class="md:col-span-2 text-gray-700 leading-relaxed space-y-4">
-            <p>
-              Para pengunjung situs yang berbahagia, kami ucapkan selamat datang
-              di situs SMK Bina Mandiri Kabupaten Tangerang ini.
-            </p>
-
-            <p>
-              Bahwasanya kami sadar sepenuhnya, dalam rangka memajukan pendidikan
-              di era berkembangnya Teknologi Informasi yang begitu pesat,
-              sangat diperlukan berbagai sarana dan prasarana yang kondusif,
-              serta kebutuhan informasi bagi siswa, guru, orang tua, maupun masyarakat.
-            </p>
-
-            <p>
-              Oleh karena itu, kami berusaha mewujudkan hal tersebut meskipun
-              belum sepenuhnya maksimal dengan peluncuran situs ini, yang
-              diharapkan dapat membantu dan memberikan manfaat, khususnya
-              terkait informasi pendidikan, ilmu pengetahuan, dan aktivitas
-              SMK Bina Mandiri Kabupaten Tangerang.
-            </p>
-
-            <p>
-              Kami berharap, melalui media layanan informasi ini dapat terjalin
-              hubungan silaturahmi yang lebih erat, menambah wawasan, serta
-              mempermudah dan mempercepat akses informasi yang dibutuhkan.
-            </p>
-
-            <p>
-              Akhir kata, kami ucapkan terima kasih atas kunjungan Anda.
-              Semoga situs ini dapat memberikan manfaat bagi kita semua.
-            </p>
-
+            {sambutanParagraphs.map((para) => (
+              <p>{para}</p>
+            ))}
             <p class="mt-6 font-semibold">
-              Kepala Sekolah  
-              <br />
-              SMK Bina Mandiri Kutabumi
+              {profilData.kepala_sekolah_nama}
             </p>
           </div>
         </div>
@@ -98,27 +64,17 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
       <!-- Visi -->
       <div class="bg-white rounded-2xl shadow p-8 mb-10">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">
-          Visi
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          Membentuk sumber daya manusia yang berwawasan global dengan mencetak
-          tenaga terampil, cerdas, berilmu, profesional, dan mandiri.
-        </p>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Visi</h2>
+        <p class="text-gray-700 leading-relaxed">{profilData.visi}</p>
       </div>
 
       <!-- Misi -->
       <div class="bg-white rounded-2xl shadow p-8">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">
-          Misi
-        </h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Misi</h2>
         <ul class="list-disc list-inside space-y-3 text-gray-700">
-          <li>Menyiapkan generasi unggul di bidang IMTAQ dan IPTEK.</li>
-          <li>Membentuk sumber daya kreatif dan inovatif sesuai perkembangan zaman.</li>
-          <li>Membentuk sumber daya yang cerdas, profesional, dan mandiri.</li>
-          <li>Menciptakan sekolah sebagai sarana pendidikan yang berkualitas.</li>
-          <li>Menjalin kerja sama harmonis antara warga dan lingkungan sekolah.</li>
-          <li>Mengembangkan proses pembelajaran yang bernuansa agamis.</li>
+          {profilData.misi.map((item) => (
+            <li>{item}</li>
+          ))}
         </ul>
       </div>
 

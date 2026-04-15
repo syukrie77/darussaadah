@@ -1,4 +1,6 @@
 ---
+import siteData from "../data/site.json";
+
 const menus = [
   { label: "Beranda", href: "/" },
   { label: "Profil", href: "/profil" },
@@ -13,8 +15,8 @@ const menus = [
 
     <!-- Logo -->
     <a href="/" class="flex items-center gap-2 font-bold text-xl text-blue-800">
-      <img src="/logo.png" alt="Logo Sekolah" class="h-8 w-auto" />
-      SMK Bina Mandiri Kutabumi
+      <img src={siteData.logo} alt={`Logo ${siteData.name}`} class="h-8 w-auto" />
+      {siteData.name}
     </a>
 
     <!-- Desktop Menu -->
@@ -62,7 +64,9 @@ const menus = [
     const menu = document.getElementById("mobileMenu");
 
     btn?.addEventListener("click", () => {
-      menu.style.maxHeight = menu.style.maxHeight ? null : menu.scrollHeight + "px";
+      if (menu) {
+        menu.style.maxHeight = menu.style.maxHeight ? "" : menu.scrollHeight + "px";
+      }
     });
   </script>
 </header>

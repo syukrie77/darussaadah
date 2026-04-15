@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import ppdbData from "../data/ppdb.json";
 ---
 
 <MainLayout title="PPDB | SMK Bina Mandiri Kutabumi">
@@ -9,41 +10,24 @@ import MainLayout from "../layouts/MainLayout.astro";
       <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="text-4xl font-bold text-gray-800 mb-4">
-          Penerimaan Peserta Didik Baru (PPDB)
+          {ppdbData.title}
         </h1>
         <p class="text-gray-600 max-w-3xl mx-auto">
-          Tahun Ajaran 2025 / 2026  
+          Tahun Ajaran {ppdbData.tahun_ajaran}
           <br />
-          Bergabunglah bersama SMK Bina Mandiri Kutabumi untuk masa depan yang
-          kompeten, profesional, dan berkarakter.
+          {ppdbData.subtitle}
         </p>
       </div>
 
-      <!-- Highlight -->
+      <!-- Highlight Keunggulan -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        <div class="bg-white rounded-xl shadow p-6 text-center">
-          <div class="text-3xl mb-2">🎓</div>
-          <h3 class="font-semibold">90% Praktik</h3>
-          <p class="text-sm text-gray-600">Pembelajaran berbasis industri</p>
-        </div>
-
-        <div class="bg-white rounded-xl shadow p-6 text-center">
-          <div class="text-3xl mb-2">🧑‍🏫</div>
-          <h3 class="font-semibold">Guru Profesional</h3>
-          <p class="text-sm text-gray-600">Berpengalaman & bersertifikat</p>
-        </div>
-
-        <div class="bg-white rounded-xl shadow p-6 text-center">
-          <div class="text-3xl mb-2">🏭</div>
-          <h3 class="font-semibold">Link Industri</h3>
-          <p class="text-sm text-gray-600">Siap magang & kerja</p>
-        </div>
-
-        <div class="bg-white rounded-xl shadow p-6 text-center">
-          <div class="text-3xl mb-2">💼</div>
-          <h3 class="font-semibold">Siap Kerja</h3>
-          <p class="text-sm text-gray-600">Lulus punya skill</p>
-        </div>
+        {ppdbData.highlights.map((h) => (
+          <div class="bg-white rounded-xl shadow p-6 text-center">
+            <div class="text-3xl mb-2">{h.icon}</div>
+            <h3 class="font-semibold">{h.title}</h3>
+            <p class="text-sm text-gray-600">{h.desc}</p>
+          </div>
+        ))}
       </div>
 
       <!-- Jurusan -->
@@ -54,27 +38,21 @@ import MainLayout from "../layouts/MainLayout.astro";
 
         <div class="grid md:grid-cols-3 gap-8">
           <div class="bg-white rounded-2xl shadow p-6 text-center">
-            <img src="/images/jurusan/tkj.png" class="w-20 h-20 mx-auto mb-4" />
+            <img src="/images/jurusan/tkj.png" alt="TKJ" class="w-20 h-20 mx-auto mb-4" />
             <h3 class="font-bold">TKJ</h3>
-            <p class="text-sm text-gray-600">
-              Teknik Komputer dan Jaringan
-            </p>
+            <p class="text-sm text-gray-600">Teknik Komputer dan Jaringan</p>
           </div>
 
           <div class="bg-white rounded-2xl shadow p-6 text-center">
-            <img src="/images/jurusan/tata-busana.png" class="w-20 h-20 mx-auto mb-4" />
+            <img src="/images/jurusan/tata-busana.png" alt="Tata Busana" class="w-20 h-20 mx-auto mb-4" />
             <h3 class="font-bold">Tata Busana</h3>
-            <p class="text-sm text-gray-600">
-              Garmen & Fashion
-            </p>
+            <p class="text-sm text-gray-600">Garmen & Fashion</p>
           </div>
 
           <div class="bg-white rounded-2xl shadow p-6 text-center">
-            <img src="/images/jurusan/bisnis-online.png" class="w-20 h-20 mx-auto mb-4" />
+            <img src="/images/jurusan/bisnis-online.png" alt="Bisnis Daring" class="w-20 h-20 mx-auto mb-4" />
             <h3 class="font-bold">Bisnis Daring</h3>
-            <p class="text-sm text-gray-600">
-              Digital Marketing & E-Commerce
-            </p>
+            <p class="text-sm text-gray-600">Digital Marketing & E-Commerce</p>
           </div>
         </div>
       </div>
@@ -84,30 +62,27 @@ import MainLayout from "../layouts/MainLayout.astro";
         <h2 class="text-2xl font-bold text-gray-800 mb-6">
           Alur Pendaftaran PPDB
         </h2>
-
         <ol class="list-decimal list-inside space-y-3 text-gray-700">
-          <li>Mengisi formulir pendaftaran online</li>
-          <li>Melengkapi data & berkas persyaratan</li>
-          <li>Verifikasi dari panitia PPDB</li>
-          <li>Pengumuman diterima</li>
-          <li>Daftar ulang & masuk sekolah</li>
+          {ppdbData.alur.map((step) => (
+            <li>{step}</li>
+          ))}
         </ol>
       </div>
 
       <!-- Tombol Daftar -->
       <div class="text-center">
         <a
-          href="https://wa.me/6285171725259"
+          href={`https://wa.me/${ppdbData.wa_number}`}
           target="_blank"
           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-xl transition"
         >
-          Daftar PPDB Sekarang
+          {ppdbData.button_text}
         </a>
-
         <p class="text-sm text-gray-500 mt-4">
           Atau hubungi panitia PPDB melalui WhatsApp
         </p>
       </div>
+
     </div>
   </section>
 </MainLayout>

@@ -1,0 +1,24 @@
+{
+  "about_title": "Tentang Sekolah",
+  "about_text": "SMK Bina Mandiri Kutabumi adalah sekolah vokasi yang berkomitmen pada pengembangan akademik, karakter, dan keterampilan berbasis industri.",
+  "school_image": "/sekolah.png",
+  "programs_title": "Program Unggulan",
+  "programs": [
+    {
+      "title": "Teknik Komputer dan Jaringan",
+      "description": "Membekali peserta didik dengan kompetensi di bidang jaringan komputer, server, cloud, keamanan jaringan, dan IT support sesuai standar industri."
+    },
+    {
+      "title": "Tata Busana (Garmen)",
+      "description": "Program keahlian yang fokus pada keterampilan desain, produksi, dan manajemen busana siap industri fashion dan wirausaha mandiri."
+    },
+    {
+      "title": "Bisnis daring dan Pemasaran",
+      "description": "Menghasilkan lulusan yang siap terjun di dunia bisnis digital, e-commerce, digital marketing, dan pengelolaan marketplace."
+    }
+  ],
+  "ppdb_title": "Penerimaan Peserta Didik Baru",
+  "ppdb_subtitle": "Segera daftarkan putra-putri Anda.",
+  "ppdb_wa": "6285312261634",
+  "ppdb_button_text": "Hubungi Panitia PPDB"
+}

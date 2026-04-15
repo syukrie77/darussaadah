@@ -1,91 +1,86 @@
 ---
-import { addIssueToContext, bigint, boolean } from "astro:schema";
 import MainLayout from "../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
+import heroData from "../data/hero.json";
+import homepageData from "../data/homepage.json";
 
 const posts = await getCollection("berita");
 
-// urutan terbaru
 const latestPosts = posts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 ---
 
 <MainLayout title="SMK Bina Mandiri Kutabumi | Website Resmi">
-  
+
   <!-- HERO SECTION -->
   <section class="bg-blue-700 text-white py-24">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        SMK Bina Mandiri Kutabumi Tangerang
+        {heroData.title}
       </h1>
       <p class="text-lg md:text-xl mb-8">
-        Kurikulum berbasis Industri, Metode Belajar Full Praktik, Cepat Kerja dan Berpenghasilan
+        {heroData.subtitle}
       </p>
       <a
-        href="/ppdb"
+        href={heroData.cta_url}
         class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300"
       >
-        Daftar PPDB Sekarang
+        {heroData.cta_text}
       </a>
     </div>
   </section>
 
+  <!-- BERITA TERBARU -->
   <section class="py-20 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex items-center justify-between mb-10">
-      <h2 class="text-3xl font-bold">Berita Terbaru</h2>
-      <a href="/berita" class="text-sm font-semibold text-blue-600 hover:underline">
-        Lihat Semua →
-      </a>
-    </div>
-
-    <div class="grid gap-8 md:grid-cols-3">
-      {latestPosts.map((post) => (
-        <a
-          href={`/berita/${post.slug}`}
-          class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
-        >
-          {post.data.image && (
-            <img
-              src={post.data.image}
-              alt={post.data.title}
-              class="h-48 w-full object-cover group-hover:scale-105 transition duration-300"
-            />
-          )}
-
-          <div class="p-6">
-            <p class="text-xs text-gray-500 mb-2">
-              {post.data.date.toLocaleDateString("id-ID")}
-            </p>
-
-            <h3 class="font-bold text-lg mb-2 line-clamp-2">
-              {post.data.title}
-            </h3>
-
-            <p class="text-sm text-gray-600 line-clamp-3">
-              {post.data.description}
-            </p>
-          </div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="text-3xl font-bold">Berita Terbaru</h2>
+        <a href="/berita" class="text-sm font-semibold text-blue-600 hover:underline">
+          Lihat Semua →
         </a>
-      ))}
-    </div>
-  </div>
-</section>
+      </div>
 
-  <!-- PROFIL SEKOLAH -->
+      <div class="grid gap-8 md:grid-cols-3">
+        {latestPosts.map((post) => (
+          <a
+            href={`/berita/${post.slug}`}
+            class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+          >
+            {post.data.image && (
+              <img
+                src={post.data.image}
+                alt={post.data.title}
+                class="h-48 w-full object-cover group-hover:scale-105 transition duration-300"
+              />
+            )}
+            <div class="p-6">
+              <p class="text-xs text-gray-500 mb-2">
+                {post.data.date.toLocaleDateString("id-ID")}
+              </p>
+              <h3 class="font-bold text-lg mb-2 line-clamp-2">
+                {post.data.title}
+              </h3>
+              <p class="text-sm text-gray-600 line-clamp-3">
+                {post.data.description}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG SEKOLAH -->
   <section class="py-20">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h2 class="text-3xl font-bold mb-4">Tentang Sekolah</h2>
-        <p class="leading-relaxed">
-          SMK Bina Mandiri Kutabumi adalah sekolah vokasi yang berkomitmen pada pengembangan
-          akademik, karakter, dan keterampilan berbasis industri.
-        </p>
+        <h2 class="text-3xl font-bold mb-4">{homepageData.about_title}</h2>
+        <p class="leading-relaxed">{homepageData.about_text}</p>
       </div>
       <div>
         <img
-          src="/sekolah.png"
+          src={homepageData.school_image}
           alt="SMK Bina Mandiri Kutabumi Tangerang"
           class="rounded-xl shadow"
         />
@@ -97,21 +92,15 @@ const latestPosts = posts
   <section class="bg-gray-100 py-20">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12">
-        Program Unggulan
+        {homepageData.programs_title}
       </h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-bold text-xl mb-2">Teknik Komputer dan Jaringan</h3>
-          <p>Membekali peserta didik dengan kompetensi di bidang jaringan komputer, server, cloud, keamanan jaringan, dan IT support sesuai standar industri.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-bold text-xl mb-2">Tata Busana (Garmen)</h3>
-          <p>Program keahlian yang fokus pada keterampilan desain, produksi, dan manajemen busana siap industri fashion dan wirausaha mandiri.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-bold text-xl mb-2">Bisnis daring dan Pemasaran</h3>
-          <p>Menghasilkan lulusan yang siap terjun di dunia bisnis digital, e-commerce, digital marketing, dan pengelolaan marketplace.</p>
-        </div>
+        {homepageData.programs.map((program) => (
+          <div class="bg-white p-6 rounded-xl shadow">
+            <h3 class="font-bold text-xl mb-2">{program.title}</h3>
+            <p>{program.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -120,16 +109,16 @@ const latestPosts = posts
   <section class="bg-blue-800 text-white py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold mb-4">
-        Penerimaan Peserta Didik Baru
+        {homepageData.ppdb_title}
       </h2>
       <p class="mb-8">
-        Segera daftarkan putra-putri Anda.
+        {homepageData.ppdb_subtitle}
       </p>
       <a
-        href="https://wa.me/6285312261634"
+        href={`https://wa.me/${homepageData.ppdb_wa}`}
         class="bg-green-500 px-8 py-3 rounded-lg font-semibold"
       >
-        Hubungi Panitia PPDB
+        {homepageData.ppdb_button_text}
       </a>
     </div>
   </section>

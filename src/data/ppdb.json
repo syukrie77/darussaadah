@@ -1,0 +1,20 @@
+{
+  "title": "Penerimaan Peserta Didik Baru (PPDB)",
+  "tahun_ajaran": "2025 / 2026",
+  "subtitle": "Bergabunglah bersama SMK Bina Mandiri Kutabumi untuk masa depan yang kompeten, profesional, dan berkarakter.",
+  "highlights": [
+    { "icon": "🎓", "title": "90% Praktik", "desc": "Pembelajaran berbasis industri" },
+    { "icon": "🧑‍🏫", "title": "Guru Profesional", "desc": "Berpengalaman & bersertifikat" },
+    { "icon": "🏭", "title": "Link Industri", "desc": "Siap magang & kerja" },
+    { "icon": "💼", "title": "Siap Kerja", "desc": "Lulus punya skill" }
+  ],
+  "alur": [
+    "Mengisi formulir pendaftaran online",
+    "Melengkapi data & berkas persyaratan",
+    "Verifikasi dari panitia PPDB",
+    "Pengumuman diterima",
+    "Daftar ulang & masuk sekolah"
+  ],
+  "wa_number": "6285171725259",
+  "button_text": "Daftar PPDB Sekarang"
+}
