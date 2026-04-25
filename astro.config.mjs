@@ -11,7 +11,7 @@ import keystatic from '@keystatic/astro';
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
-  site: 'https://school-freewebsite.netlify.app',
+  site: 'https://darussaadah.netlify.app/',
 
   integrations: [
     sitemap(),
