@@ -2,7 +2,9 @@ import { config, fields, collection, singleton } from "@keystatic/core";
 
 export default config({
   storage: {
-    kind: "local",
+    // -- kind: "local",
+    kind: 'github',
+    repo: 'syukrie77/darussaadah',
   },
 
   // ─── PENGATURAN SITUS (SINGLETONS) ──────────────────────────────────────
