@@ -26,7 +26,8 @@
       "bg_overlay": "light",
       "badge": "Test Banner",
       "title": "Hayo sekolah ke SMK",
-      "subtitle": "lebih cepat dapat duit"
+      "subtitle": "lebih cepat dapat duit",
+      "bg_image": "public/uploads/hasil_vibe_coding.png"
     }
   ]
 }
