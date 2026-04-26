@@ -5,19 +5,18 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import markdoc from '@astrojs/markdoc';
 import keystatic from '@keystatic/astro';
-
-// Keystatic admin hanya aktif di development (local)
-// Di production (Netlify), site tetap pure static seperti sebelumnya
-const isProduction = process.env.NODE_ENV === 'production';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'https://darussaadah.netlify.app/',
+  output: 'hybrid',
+  adapter: netlify(),
 
   integrations: [
     sitemap(),
     react({ include: ['**/@keystatic/**'] }),
     markdoc(),
-    ...(isProduction ? [] : [keystatic()]),
+    keystatic(),
   ],
 
   vite: {
