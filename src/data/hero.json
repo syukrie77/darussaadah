@@ -1,26 +1,32 @@
 {
   "slides": [
     {
-      "badge": "PPDB 2025/2026 · Pendaftaran Dibuka",
-      "title": "SMK Daarussa'adah Kota Tangerang",
-      "subtitle": "Kurikulum berbasis Industri, Metode Belajar Full Praktik, Cepat Kerja dan Berpenghasilan",
-      "cta_text": "Daftar PPDB Sekarang",
       "cta_url": "/ppdb",
+      "bg_image": "",
+      "badge": "PPDB 2025/2026 · Pendaftaran Dibuka",
       "cta2_text": "Tentang Sekolah",
       "cta2_url": "/profil",
-      "bg_image": "",
-      "bg_overlay": "medium"
+      "bg_overlay": "medium",
+      "subtitle": "Kurikulum berbasis Industri, Metode Belajar Full Praktik, Cepat Kerja dan Berpenghasilan",
+      "title": "SMK Daarussa'adah Kota Tangerang",
+      "cta_text": "Daftar PPDB Sekarang"
     },
     {
-      "badge": "Program Unggulan",
-      "title": "Teknologi & Bisnis untuk Masa Depan",
-      "subtitle": "Pelajari skill industri yang relevan dan siap kerja sejak bangku sekolah",
-      "cta_text": "Lihat Program",
       "cta_url": "/#program",
+      "bg_image": "",
+      "badge": "Program Unggulan",
       "cta2_text": "",
       "cta2_url": "",
-      "bg_image": "",
-      "bg_overlay": "medium"
+      "bg_overlay": "medium",
+      "subtitle": "Pelajari skill industri yang relevan dan siap kerja sejak bangku sekolah",
+      "title": "Teknologi & Bisnis untuk Masa Depan",
+      "cta_text": "Lihat Program"
+    },
+    {
+      "bg_overlay": "medium",
+      "badge": "Test Banner",
+      "title": "Hayo sekolah ke SMK",
+      "subtitle": "lebih cepat dapat duit"
     }
   ]
 }
