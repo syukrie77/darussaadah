@@ -40,7 +40,7 @@ collections:
               - { name: cta_url, label: Link Tombol, widget: string, required: false }
               - { name: cta2_text, label: Teks Tombol Kedua, widget: string, required: false }
               - { name: cta2_url, label: Link Tombol Kedua, widget: string, required: false }
-              - { name: bg_image, label: URL Gambar Latar, widget: string, required: false }
+              - { name: bg_image, label: Gambar Latar Banner, widget: image, required: false }
               - name: bg_overlay
                 label: Overlay Gambar
                 widget: select
