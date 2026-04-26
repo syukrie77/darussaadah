@@ -1,0 +1,199 @@
+---
+interface Slide {
+  badge?: string;
+  title: string;
+  subtitle?: string;
+  cta_text?: string;
+  cta_url?: string;
+  cta2_text?: string;
+  cta2_url?: string;
+  bg_image?: string;
+  bg_overlay?: string;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+
+const overlayClass: Record<string, string> = {
+  none: "bg-transparent",
+  light: "bg-black/20",
+  medium: "bg-black/50",
+  dark: "bg-black/70",
+};
+---
+
+<section
+  id="hero-banner"
+  class="relative overflow-hidden min-h-[520px] md:min-h-[600px] select-none"
+  aria-label="Banner utama"
+>
+  <!-- SLIDES WRAPPER -->
+  <div
+    id="slides-track"
+    class="flex transition-transform duration-700 ease-in-out h-full"
+    style="will-change: transform;"
+  >
+    {slides.map((slide) => (
+      <div
+        class="relative min-w-full min-h-[520px] md:min-h-[600px] flex items-center justify-center"
+        style={slide.bg_image ? `background-image: url('${slide.bg_image}'); background-size: cover; background-position: center;` : ""}
+      >
+        <!-- Background default (biru) jika tidak ada gambar -->
+        {!slide.bg_image && (
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-800 via-blue-700 to-blue-600" />
+        )}
+
+        <!-- Overlay gelap untuk keterbacaan teks -->
+        {slide.bg_image && (
+          <div class={`absolute inset-0 ${overlayClass[slide.bg_overlay ?? "medium"] ?? overlayClass["medium"]}`} />
+        )}
+
+        <!-- Konten Slide -->
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+          {slide.badge && (
+            <span class="inline-block mb-4 px-4 py-1.5 bg-yellow-400 text-blue-900 text-sm font-semibold rounded-full tracking-wide">
+              {slide.badge}
+            </span>
+          )}
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight drop-shadow-lg">
+            {slide.title}
+          </h1>
+
+          {slide.subtitle && (
+            <p class="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow">
+              {slide.subtitle}
+            </p>
+          )}
+
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            {slide.cta_text && slide.cta_url && (
+              <a
+                href={slide.cta_url}
+                class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors shadow-lg"
+              >
+                {slide.cta_text}
+              </a>
+            )}
+            {slide.cta2_text && slide.cta2_url && (
+              <a
+                href={slide.cta2_url}
+                class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors"
+              >
+                {slide.cta2_text}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- TOMBOL PREV / NEXT (hanya tampil jika slide > 1) -->
+  {slides.length > 1 && (
+    <>
+      <button
+        id="btn-prev"
+        aria-label="Slide sebelumnya"
+        class="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white rounded-full p-2.5 transition-colors backdrop-blur-sm"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="btn-next"
+        aria-label="Slide berikutnya"
+        class="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white rounded-full p-2.5 transition-colors backdrop-blur-sm"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- DOTS NAVIGASI -->
+      <div
+        id="dots-container"
+        class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2"
+        role="tablist"
+        aria-label="Navigasi slide"
+      >
+        {slides.map((_, i) => (
+          <button
+            class="dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-white/40 hover:bg-white/80"
+            data-index={i}
+            aria-label={`Slide ${i + 1}`}
+            role="tab"
+          />
+        ))}
+      </div>
+    </>
+  )}
+</section>
+
+<script>
+  const track = document.getElementById("slides-track") as HTMLElement;
+  const dots = document.querySelectorAll<HTMLButtonElement>(".dot");
+  const btnPrev = document.getElementById("btn-prev");
+  const btnNext = document.getElementById("btn-next");
+
+  if (!track) throw new Error("slides-track not found");
+
+  const total = dots.length;
+  let current = 0;
+  let autoTimer: ReturnType<typeof setInterval>;
+
+  function goTo(index: number) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("bg-white", i === current);
+      dot.classList.toggle("scale-125", i === current);
+      dot.classList.toggle("bg-white/40", i !== current);
+      dot.classList.remove("scale-125");
+      if (i === current) dot.classList.add("scale-125");
+    });
+  }
+
+  function startAuto() {
+    autoTimer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function stopAuto() {
+    clearInterval(autoTimer);
+  }
+
+  // Inisialisasi
+  goTo(0);
+  startAuto();
+
+  btnPrev?.addEventListener("click", () => { stopAuto(); goTo(current - 1); startAuto(); });
+  btnNext?.addEventListener("click", () => { stopAuto(); goTo(current + 1); startAuto(); });
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      stopAuto();
+      goTo(Number(dot.dataset.index));
+      startAuto();
+    });
+  });
+
+  // Pause saat hover
+  track.closest("section")?.addEventListener("mouseenter", stopAuto);
+  track.closest("section")?.addEventListener("mouseleave", startAuto);
+
+  // Swipe support (mobile)
+  let touchStartX = 0;
+  track.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener("touchend", (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      stopAuto();
+      goTo(diff > 0 ? current + 1 : current - 1);
+      startAuto();
+    }
+  });
+</script>

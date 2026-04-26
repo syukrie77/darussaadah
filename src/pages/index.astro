@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import HeroBanner from "../components/HeroBanner.astro";
 import { getCollection } from "astro:content";
 import heroData from "../data/hero.json";
 import homepageData from "../data/homepage.json";
@@ -14,22 +15,7 @@ const latestPosts = posts
 <MainLayout title="SMK Bina Mandiri Kutabumi | Website Resmi">
 
   <!-- HERO SECTION -->
-  <section class="bg-blue-700 text-white py-24">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        {heroData.title}
-      </h1>
-      <p class="text-lg md:text-xl mb-8">
-        {heroData.subtitle}
-      </p>
-      <a
-        href={heroData.cta_url}
-        class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300"
-      >
-        {heroData.cta_text}
-      </a>
-    </div>
-  </section>
+  <HeroBanner slides={heroData.slides} />
 
   <!-- BERITA TERBARU -->
   <section class="py-20 bg-gray-50">

@@ -51,23 +51,56 @@ export default config({
       path: "src/data/hero",
       format: { data: "json" },
       schema: {
-        title: fields.text({
-          label: "Judul Utama",
-          description: "Teks besar di bagian atas halaman",
-        }),
-        subtitle: fields.text({
-          label: "Subtitle / Tagline",
-          description: "Kalimat penjelasan di bawah judul",
-          multiline: true,
-        }),
-        cta_text: fields.text({
-          label: "Teks Tombol",
-          description: "Label tombol CTA, contoh: Daftar PPDB Sekarang",
-        }),
-        cta_url: fields.text({
-          label: "Link Tombol",
-          description: "URL tujuan tombol, contoh: /ppdb",
-        }),
+        slides: fields.array(
+          fields.object({
+            badge: fields.text({
+              label: "Label / Badge (opsional)",
+              description: "Contoh: PPDB 2025/2026 · Pendaftaran Dibuka",
+              validation: { isRequired: false },
+            }),
+            title: fields.text({
+              label: "Judul Banner",
+              description: "Teks besar di banner",
+              validation: { isRequired: true },
+            }),
+            subtitle: fields.text({
+              label: "Subtitle / Deskripsi",
+              description: "Kalimat penjelasan di bawah judul",
+              multiline: true,
+            }),
+            cta_text: fields.text({
+              label: "Teks Tombol",
+              description: "Contoh: Daftar Sekarang, Selengkapnya",
+            }),
+            cta_url: fields.text({
+              label: "Link Tombol",
+              description: "Contoh: /ppdb, /profil",
+            }),
+            cta2_text: fields.text({
+              label: "Teks Tombol Kedua (opsional)",
+              description: "Tombol sekunder, contoh: Lihat Program",
+              validation: { isRequired: false },
+            }),
+            cta2_url: fields.text({
+              label: "Link Tombol Kedua (opsional)",
+              validation: { isRequired: false },
+            }),
+            bg_image: fields.text({
+              label: "URL Gambar Latar Banner",
+              description: "Opsional. Isi path gambar, contoh: /banners/foto-sekolah.jpg. Kosongkan untuk pakai latar biru default.",
+              validation: { isRequired: false },
+            }),
+            bg_overlay: fields.text({
+              label: "Overlay Gambar",
+              description: "Isi: none / light / medium / dark (default: medium). Gelap = teks lebih terbaca.",
+              validation: { isRequired: false },
+            }),
+          }),
+          {
+            label: "Daftar Slide Banner",
+            itemLabel: (props) => props.fields.title.value || "Slide Baru",
+          }
+        ),
       },
     }),
 
