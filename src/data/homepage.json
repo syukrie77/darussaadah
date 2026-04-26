@@ -1,8 +1,7 @@
 {
   "about_title": "Tentang Sekolah",
-  "about_text": "SMK Bina Mandiri Kutabumi adalah sekolah vokasi yang berkomitmen pada pengembangan akademik, karakter, dan keterampilan berbasis industri.",
-  "school_image": "/school_image.jpg",
   "programs_title": "Program Unggulan",
+  "ppdb_wa": "6285312261634",
   "programs": [
     {
       "title": "Teknik Komputer dan Jaringan",
@@ -17,8 +16,9 @@
       "description": "Menghasilkan lulusan yang siap terjun di dunia bisnis digital, e-commerce, digital marketing, dan pengelolaan marketplace."
     }
   ],
+  "school_image": "/school_image.jpg",
   "ppdb_title": "Penerimaan Peserta Didik Baru",
   "ppdb_subtitle": "Segera daftarkan putra-putri Anda.",
-  "ppdb_wa": "6285312261634",
-  "ppdb_button_text": "Hubungi Panitia PPDB"
+  "ppdb_button_text": "Hubungi Panitia PPDB",
+  "about_text": "SMK Daarrussaadah Kota Tangerang adalah sekolah vokasi yang berkomitmen pada pengembangan akademik, karakter, dan keterampilan berbasis industri."
 }
