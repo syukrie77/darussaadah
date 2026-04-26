@@ -1,0 +1,140 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+locale: id
+
+collections:
+  # ─── PENGATURAN SITUS ────────────────────────────────────────────────────────
+  - name: pengaturan
+    label: Pengaturan Situs
+    files:
+
+      - name: umum
+        label: Umum (Nama & Logo)
+        file: src/data/site.json
+        format: json
+        fields:
+          - { name: name, label: Nama Sekolah, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: logo, label: Logo Sekolah, widget: image, required: false }
+          - { name: description, label: Deskripsi SEO, widget: text }
+          - { name: og_image, label: Gambar Share (OG Image), widget: image, required: false }
+
+      - name: hero
+        label: Hero / Banner Halaman Utama
+        file: src/data/hero.json
+        format: json
+        fields:
+          - name: slides
+            label: Daftar Slide Banner
+            widget: list
+            fields:
+              - { name: badge, label: "Label/Badge (opsional)", widget: string, required: false }
+              - { name: title, label: Judul Banner, widget: string }
+              - { name: subtitle, label: Subtitle, widget: text, required: false }
+              - { name: cta_text, label: Teks Tombol, widget: string, required: false }
+              - { name: cta_url, label: Link Tombol, widget: string, required: false }
+              - { name: cta2_text, label: Teks Tombol Kedua, widget: string, required: false }
+              - { name: cta2_url, label: Link Tombol Kedua, widget: string, required: false }
+              - { name: bg_image, label: URL Gambar Latar, widget: string, required: false }
+              - name: bg_overlay
+                label: Overlay Gambar
+                widget: select
+                options: [none, light, medium, dark]
+                default: medium
+                required: false
+
+      - name: footer
+        label: Footer
+        file: src/data/footer.json
+        format: json
+        fields:
+          - { name: about, label: Teks Tentang Sekolah, widget: text }
+          - { name: address, label: Alamat, widget: text }
+          - { name: email, label: Email, widget: string }
+          - { name: phone, label: Nomor Telepon, widget: string }
+          - { name: copyright, label: Nama Hak Cipta, widget: string }
+
+  # ─── HALAMAN ─────────────────────────────────────────────────────────────────
+  - name: halaman
+    label: Halaman
+    files:
+
+      - name: beranda
+        label: Halaman Beranda
+        file: src/data/homepage.json
+        format: json
+        fields:
+          - { name: about_title, label: Judul Tentang Sekolah, widget: string }
+          - { name: about_text, label: Teks Tentang Sekolah, widget: text }
+          - { name: school_image, label: Foto Gedung/Sekolah, widget: image, required: false }
+          - { name: programs_title, label: Judul Program Unggulan, widget: string }
+          - name: programs
+            label: Program Unggulan
+            widget: list
+            fields:
+              - { name: title, label: Nama Program, widget: string }
+              - { name: description, label: Deskripsi, widget: text }
+          - { name: ppdb_title, label: Judul CTA PPDB, widget: string }
+          - { name: ppdb_subtitle, label: Subtitle CTA PPDB, widget: text }
+          - { name: ppdb_wa, label: "Nomor WhatsApp PPDB (tanpa + atau spasi)", widget: string }
+          - { name: ppdb_button_text, label: Teks Tombol PPDB, widget: string }
+
+      - name: profil
+        label: Halaman Profil Sekolah
+        file: src/data/profil.json
+        format: json
+        fields:
+          - { name: intro1, label: Paragraf Perkenalan 1, widget: text }
+          - { name: intro2, label: Paragraf Perkenalan 2, widget: text }
+          - { name: npsn, label: NPSN, widget: string }
+          - { name: status, label: "Status Sekolah (Swasta/Negeri)", widget: string }
+          - { name: akreditasi, label: "Akreditasi (A/B/C)", widget: string }
+          - { name: tahun_berdiri, label: Tahun Berdiri, widget: string }
+          - { name: kepala_sekolah_foto, label: Foto Kepala Sekolah, widget: image, required: false }
+          - { name: kepala_sekolah_nama, label: Nama Kepala Sekolah, widget: string }
+          - { name: sambutan, label: Sambutan Kepala Sekolah, widget: text }
+          - { name: visi, label: Visi Sekolah, widget: text }
+          - name: misi
+            label: Misi Sekolah
+            widget: list
+
+      - name: ppdb
+        label: Halaman PPDB
+        file: src/data/ppdb.json
+        format: json
+        fields:
+          - { name: title, label: Judul Halaman, widget: string }
+          - { name: tahun_ajaran, label: Tahun Ajaran, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text }
+          - name: highlights
+            label: Keunggulan Sekolah
+            widget: list
+            fields:
+              - { name: icon, label: "Ikon (emoji)", widget: string }
+              - { name: title, label: Judul, widget: string }
+              - { name: desc, label: Deskripsi Singkat, widget: string }
+          - name: alur
+            label: Alur Pendaftaran
+            widget: list
+          - { name: wa_number, label: "Nomor WhatsApp (tanpa + atau spasi)", widget: string }
+          - { name: button_text, label: Teks Tombol Daftar, widget: string }
+
+  # ─── BERITA ──────────────────────────────────────────────────────────────────
+  - name: berita
+    label: Berita Sekolah
+    folder: src/content/berita
+    create: true
+    slug: "{{slug}}"
+    format: frontmatter
+    fields:
+      - { name: title, label: Judul Berita, widget: string }
+      - { name: description, label: Deskripsi Singkat, widget: text }
+      - { name: date, label: Tanggal Terbit, widget: datetime, format: "YYYY-MM-DD", date_format: "DD MMMM YYYY", time_format: false }
+      - { name: author, label: Penulis, widget: string, default: Admin Sekolah }
+      - { name: image, label: Gambar Utama, widget: image, required: false }
+      - { name: body, label: Isi Berita, widget: markdown }
