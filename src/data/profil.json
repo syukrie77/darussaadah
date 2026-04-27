@@ -1,15 +1,21 @@
 {
+<<<<<<< HEAD
   "nama_sekolah": "SMK Bina Mandiri Kutabumi",
   "intro1": "SMK Bina Mandiri Kutabumi adalah sekolah kejuruan yang berfokus pada metode pembelajaran full praktik untuk membekali peserta didik dengan keterampilan siap kerja.",
   "intro2": "Dengan tenaga pendidik profesional dan fasilitas modern, sekolah kami mempersiapkan peserta didik untuk menghadapi tantangan global secara kompeten dan berkarakter.",
   "npsn": "12345678",
   "status": "Swasta",
   "akreditasi": "A",
+=======
+>>>>>>> 985437489943162d975c68a19179e2fc433b55b3
   "tahun_berdiri": "2010",
+  "akreditasi": "A",
+  "intro1": "SMK Daarussaadah adalah sekolah kejuruan yang berfokus pada metode pembelajaran full praktik untuk membekali peserta didik dengan keterampilan siap kerja.",
   "kepala_sekolah_foto": "/images/kepala_sekolah_foto.jpg",
+  "intro2": "Dengan tenaga pendidik profesional dan fasilitas modern, sekolah kami mempersiapkan peserta didik untuk menghadapi tantangan global secara kompeten dan berkarakter.",
   "kepala_sekolah_nama": "Kepala Sekolah SMK Darussaadah Tangerang Kota",
-  "sambutan": "Para pengunjung situs yang berbahagia, kami ucapkan selamat datang di situs SMK Bina Mandiri Kabupaten Tangerang ini.\n\nBahwasanya kami sadar sepenuhnya, dalam rangka memajukan pendidikan di era berkembangnya Teknologi Informasi yang begitu pesat, sangat diperlukan berbagai sarana dan prasarana yang kondusif, serta kebutuhan informasi bagi siswa, guru, orang tua, maupun masyarakat.\n\nOleh karena itu, kami berusaha mewujudkan hal tersebut meskipun belum sepenuhnya maksimal dengan peluncuran situs ini, yang diharapkan dapat membantu dan memberikan manfaat, khususnya terkait informasi pendidikan, ilmu pengetahuan, dan aktivitas SMK Bina Mandiri Kabupaten Tangerang.\n\nKami berharap, melalui media layanan informasi ini dapat terjalin hubungan silaturahmi yang lebih erat, menambah wawasan, serta mempermudah dan mempercepat akses informasi yang dibutuhkan.\n\nAkhir kata, kami ucapkan terima kasih atas kunjungan Anda. Semoga situs ini dapat memberikan manfaat bagi kita semua.",
   "visi": "Membentuk sumber daya manusia yang berwawasan global dengan mencetak tenaga terampil, cerdas, berilmu, profesional, dan mandiri.",
+  "sambutan": "Para pengunjung situs yang berbahagia, kami ucapkan selamat datang di situs SMK Daarussaadah Kota Tangerang ini.\n\nBahwasanya kami sadar sepenuhnya, dalam rangka memajukan pendidikan di era berkembangnya Teknologi Informasi yang begitu pesat, sangat diperlukan berbagai sarana dan prasarana yang kondusif, serta kebutuhan informasi bagi siswa, guru, orang tua, maupun masyarakat.\n\nOleh karena itu, kami berusaha mewujudkan hal tersebut meskipun belum sepenuhnya maksimal dengan peluncuran situs ini, yang diharapkan dapat membantu dan memberikan manfaat, khususnya terkait informasi pendidikan, ilmu pengetahuan, dan aktivitas SMK Daarussaadah Kota Tangerang.\n\nKami berharap, melalui media layanan informasi ini dapat terjalin hubungan silaturahmi yang lebih erat, menambah wawasan, serta mempermudah dan mempercepat akses informasi yang dibutuhkan.\n\nAkhir kata, kami ucapkan terima kasih atas kunjungan Anda. Semoga situs ini dapat memberikan manfaat bagi kita semua.",
   "misi": [
     "Menyiapkan generasi unggul di bidang IMTAQ dan IPTEK.",
     "Membentuk sumber daya kreatif dan inovatif sesuai perkembangan zaman.",
@@ -17,5 +23,7 @@
     "Menciptakan sekolah sebagai sarana pendidikan yang berkualitas.",
     "Menjalin kerja sama harmonis antara warga dan lingkungan sekolah.",
     "Mengembangkan proses pembelajaran yang bernuansa agamis."
-  ]
+  ],
+  "status": "Swasta",
+  "npsn": "12345678"
 }

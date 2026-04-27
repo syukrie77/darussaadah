@@ -2,7 +2,7 @@
   "slides": [
     {
       "cta_url": "/ppdb",
-      "bg_image": "https://unsplash.com/photos/red-apple-fruit-on-four-pyle-books-OyCl7Y4y0Bk",
+      "bg_image": "/uploads/2024-10-28-di-kelas.jpg",
       "badge": "PPDB 2025/2026 · Pendaftaran Dibuka",
       "cta2_text": "Tentang Sekolah",
       "cta2_url": "/profil",
@@ -13,7 +13,7 @@
     },
     {
       "cta_url": "/#program",
-      "bg_image": "",
+      "bg_image": "/uploads/group-2249.png",
       "badge": "Program Unggulan",
       "cta2_text": "",
       "cta2_url": "",
@@ -21,13 +21,6 @@
       "subtitle": "Pelajari skill industri yang relevan dan siap kerja sejak bangku sekolah",
       "title": "Teknologi & Bisnis untuk Masa Depan",
       "cta_text": "Lihat Program"
-    },
-    {
-      "bg_overlay": "light",
-      "badge": "Test Banner",
-      "title": "Hayo sekolah ke SMK",
-      "subtitle": "lebih cepat dapat duit",
-      "bg_image": "public/uploads/hasil_vibe_coding.png"
     }
   ]
 }
