@@ -89,6 +89,7 @@ collections:
         file: src/data/profil.json
         format: json
         fields:
+          - { name: nama_sekolah, label: Nama Sekolah, widget: string }
           - { name: intro1, label: Paragraf Perkenalan 1, widget: text }
           - { name: intro2, label: Paragraf Perkenalan 2, widget: text }
           - { name: npsn, label: NPSN, widget: string }
