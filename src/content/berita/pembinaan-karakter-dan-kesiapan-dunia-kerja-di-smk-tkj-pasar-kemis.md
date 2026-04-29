@@ -11,6 +11,8 @@ date: 2026-04-29
 author: Admin Sekolah
 image: /uploads/qq.jpg
 ---
+Suasana ruang kelas yang tampak sederhana namun penuh makna ini menggambarkan salah satu aktivitas penting dalam dunia pendidikan vokasi. Dalam foto tersebut, terlihat para siswa duduk dengan rapi memperhatikan pemateri yang sedang memberikan pembinaan, didampingi oleh aparat kepolisian. Kegiatan ini menjadi bukti nyata bagaimana SMK TKJ Pasar Kemis tidak hanya fokus pada pembelajaran teknis, tetapi juga membangun karakter dan kesiapan mental siswa untuk menghadapi dunia kerja.
+
 Acara yang berlangsung di dalam kelas ini merupakan bentuk kolaborasi antara pihak sekolah dan instansi eksternal, dalam hal ini kepolisian setempat. Materi yang disampaikan berfokus pada kedisiplinan, etika, serta pemahaman hukum yang sangat penting bagi siswa. Hal ini sejalan dengan visi **SMK siap kerja**, yaitu mencetak lulusan yang tidak hanya memiliki keterampilan teknis, tetapi juga memiliki sikap profesional dan tanggung jawab.
 
 Para siswa yang hadir terlihat mengenakan seragam khas sekolah dengan penuh perhatian menyimak setiap materi yang disampaikan. Interaksi antara pemateri dan siswa menunjukkan adanya komunikasi dua arah yang aktif. Ini mencerminkan bahwa metode pembelajaran di sekolah tersebut tidak monoton, melainkan interaktif dan kontekstual.
