@@ -1,29 +1,43 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import kontakData from "../../data/kontak.json";
+import siteData from "../../data/site.json";
+
+const { title, address, phone, email, wa_number, wa_text } = kontakData;
 ---
 
-<MainLayout title="Kontak | SMK Bina Mandiri Kutabumi">
+<MainLayout title={`${title} | ${siteData.name}`}>
   <section class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
 
       <h1 class="text-4xl font-bold text-gray-800 mb-10">
-        Kontak Kami
+        {title}
       </h1>
 
       <div class="grid md:grid-cols-2 gap-10">
-        
+
         <!-- Informasi -->
         <div class="bg-white rounded-2xl shadow p-8">
           <h2 class="font-semibold text-lg mb-4">Informasi Kontak</h2>
           <p class="text-gray-700 mb-2">
-            📍 Jl. Raya Cadas Kukun KM 2,5 Kutabaru Pasar Kemis - Kab. Tangerang
+            📍 {address}
           </p>
           <p class="text-gray-700 mb-2">
-            📞 0818 0840 2439
+            📞 {phone}
           </p>
-          <p class="text-gray-700">
-            ✉️ smkbimakutabumi[at]gmail.com
+          <p class="text-gray-700 mb-4">
+            ✉️ {email}
           </p>
+          {wa_number && (
+            <a
+              href={`https://wa.me/${wa_number}?text=${encodeURIComponent(wa_text)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition text-sm"
+            >
+              💬 Chat via WhatsApp
+            </a>
+          )}
         </div>
 
         <!-- Form Netlify -->
@@ -80,7 +94,6 @@ import MainLayout from "../../layouts/MainLayout.astro";
         </form>
 
       </div>
-
     </div>
   </section>
 </MainLayout>

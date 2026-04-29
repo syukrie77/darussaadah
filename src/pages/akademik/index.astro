@@ -1,114 +1,52 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
+import jurusanData from "../../data/jurusan.json";
+import siteData from "../../data/site.json";
+
+const { title, subtitle, jurusan } = jurusanData;
 ---
 
-<MainLayout title="Akademik | SMK Bina Mandiri Kutabumi">
+<MainLayout title={`${title} | ${siteData.name}`}>
   <section class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
 
       <!-- Judul -->
       <h1 class="text-4xl font-bold text-gray-800 mb-4">
-        Jurusan
+        {title}
       </h1>
       <p class="text-gray-600 mb-12 max-w-3xl">
-        Program jurusan SMK Bina Mandiri Kutabumi dirancang berbasis kebutuhan
-        industri dengan komposisi pembelajaran 90% praktik dan 10% teori.
+        {subtitle}
       </p>
 
       <!-- Grid Jurusan -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
-        <!-- TKJ -->
-        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
-          <img
-            src="/images/jurusan/tkj.png"
-            alt="Jurusan Teknik Komputer dan Jaringan"
-            class="w-74 h-74 mx-auto mb-4 object-contain"
-          />
-
-          <div class="p-6">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-2xl">💻</span>
-              <h2 class="font-bold text-lg">
-                Teknik Komputer dan Jaringan (TKJ)
-              </h2>
+        {jurusan.map((j) => (
+          <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            {j.gambar && (
+              <img
+                src={j.gambar}
+                alt={`Jurusan ${j.nama}`}
+                class="w-74 h-74 mx-auto mb-4 object-contain"
+              />
+            )}
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl">{j.icon}</span>
+                <h2 class="font-bold text-lg">{j.nama}</h2>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                {j.deskripsi}
+              </p>
+              {j.kompetensi && j.kompetensi.length > 0 && (
+                <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
+                  {j.kompetensi.map((k) => (
+                    <li>{k}</li>
+                  ))}
+                </ul>
+              )}
             </div>
-
-            <p class="text-gray-600 text-sm leading-relaxed mb-4">
-              Membekali peserta didik dengan kompetensi di bidang jaringan
-              komputer, server, cloud, keamanan jaringan, dan IT support
-              sesuai standar industri.
-            </p>
-
-            <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
-              <li>Jaringan Komputer & Internet</li>
-              <li>Administrasi Server</li>
-              <li>Cloud & Virtualisasi</li>
-              <li>IT Support & Troubleshooting</li>
-            </ul>
           </div>
-        </div>
-
-        <!-- Tata Busana -->
-        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
-          <img
-            src="/images/jurusan/tata-busana.png"
-            alt="Jurusan Tata Busana"
-            class="w-74 h-74 mx-auto mb-4 object-contain"
-          />
-
-          <div class="p-6">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-2xl">👗</span>
-              <h2 class="font-bold text-lg">
-                Tata Busana (Garmen)
-              </h2>
-            </div>
-
-            <p class="text-gray-600 text-sm leading-relaxed mb-4">
-              Program keahlian yang fokus pada keterampilan desain, produksi,
-              dan manajemen busana siap industri fashion dan wirausaha mandiri.
-            </p>
-
-            <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
-              <li>Desain & Pola Busana</li>
-              <li>Teknik Menjahit Industri</li>
-              <li>Produksi Garmen</li>
-              <li>Fashionpreneur</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Bisnis Daring -->
-        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
-          <img
-            src="/images/jurusan/bisnis-online.png"
-            alt="Jurusan Bisnis Daring dan Pemasaran"
-            class="w-74 h-74 mx-auto mb-4 object-contain"
-          />
-
-          <div class="p-6">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-2xl">📊</span>
-              <h2 class="font-bold text-lg">
-                Bisnis Daring & Pemasaran
-              </h2>
-            </div>
-
-            <p class="text-gray-600 text-sm leading-relaxed mb-4">
-              Menghasilkan lulusan yang siap terjun di dunia bisnis digital,
-              e-commerce, digital marketing, dan pengelolaan marketplace.
-            </p>
-
-            <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
-              <li>Digital Marketing</li>
-              <li>E-Commerce & Marketplace</li>
-              <li>Content & Branding</li>
-              <li>Entrepreneurship Digital</li>
-            </ul>
-          </div>
-        </div>
-
+        ))}
       </div>
 
     </div>

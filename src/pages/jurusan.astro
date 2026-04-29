@@ -1,19 +1,52 @@
-<section class="bg-gray-100 py-20">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8 text-center">Jurusan yang Tersedia di SMK Bina Mandiri</h2>
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-                <h3 class="text-xl font-semibold mb-4">Teknik Komputer dan Jaringan (TKJ)</h3>
-                <p>Program studi yang fokus pada instalasi, konfigurasi, dan pemeliharaan jaringan komputer serta perangkat keras.</p>
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import jurusanData from "../data/jurusan.json";
+import siteData from "../data/site.json";
+
+const { title, subtitle, jurusan } = jurusanData;
+---
+
+<MainLayout title={`${title} | ${siteData.name}`}>
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">
+        {title}
+      </h1>
+      <p class="text-gray-600 mb-12 max-w-3xl">
+        {subtitle}
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {jurusan.map((j) => (
+          <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            {j.gambar && (
+              <img
+                src={j.gambar}
+                alt={`Jurusan ${j.nama}`}
+                class="w-74 h-74 mx-auto mb-4 object-contain"
+              />
+            )}
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl">{j.icon}</span>
+                <h2 class="font-bold text-lg">{j.nama}</h2>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                {j.deskripsi}
+              </p>
+              {j.kompetensi && j.kompetensi.length > 0 && (
+                <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
+                  {j.kompetensi.map((k) => (
+                    <li>{k}</li>
+                  ))}
+                </ul>
+              )}
             </div>
-            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-                <h3 class="text-xl font-semibold mb-4">Rekayasa Perangkat Lunak (RPL)</h3>
-                <p>Program studi yang mengajarkan tentang pengembangan perangkat lunak, mulai dari analisis hingga pemrograman.</p>
-            </div>
-            <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-                <h3 class="text-xl font-semibold mb-4">Bisnis Daring dan Pemasaran (BDP)</h3>
-                <p>Program studi yang mempersiapkan siswa untuk mengelola bisnis online dan strategi pemasaran digital.</p>
-            </div>
-        </div>
+          </div>
+        ))}
+      </div>
+
     </div>
-</section>
+  </section>
+</MainLayout>

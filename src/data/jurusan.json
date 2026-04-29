@@ -1,0 +1,42 @@
+{
+  "title": "Jurusan",
+  "subtitle": "Program jurusan SMK Daarussa'adah Kota Tangerang dirancang berbasis kebutuhan industri dengan komposisi pembelajaran 90% praktik dan 10% teori.",
+  "jurusan": [
+    {
+      "nama": "Teknik Komputer dan Jaringan (TKJ)",
+      "icon": "💻",
+      "gambar": "/images/jurusan/tkj.png",
+      "deskripsi": "Membekali peserta didik dengan kompetensi di bidang jaringan komputer, server, cloud, keamanan jaringan, dan IT support sesuai standar industri.",
+      "kompetensi": [
+        "Jaringan Komputer & Internet",
+        "Administrasi Server",
+        "Cloud & Virtualisasi",
+        "IT Support & Troubleshooting"
+      ]
+    },
+    {
+      "nama": "Tata Busana (Garmen)",
+      "icon": "👗",
+      "gambar": "/images/jurusan/tata-busana.png",
+      "deskripsi": "Program keahlian yang fokus pada keterampilan desain, produksi, dan manajemen busana siap industri fashion dan wirausaha mandiri.",
+      "kompetensi": [
+        "Desain & Pola Busana",
+        "Teknik Menjahit Industri",
+        "Produksi Garmen",
+        "Fashionpreneur"
+      ]
+    },
+    {
+      "nama": "Bisnis Daring & Pemasaran",
+      "icon": "📊",
+      "gambar": "/images/jurusan/bisnis-online.png",
+      "deskripsi": "Menghasilkan lulusan yang siap terjun di dunia bisnis digital, e-commerce, digital marketing, dan pengelolaan marketplace.",
+      "kompetensi": [
+        "Digital Marketing",
+        "E-Commerce & Marketplace",
+        "Content & Branding",
+        "Entrepreneurship Digital"
+      ]
+    }
+  ]
+}

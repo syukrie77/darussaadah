@@ -125,6 +125,38 @@ collections:
           - { name: wa_number, label: "Nomor WhatsApp (tanpa + atau spasi)", widget: string }
           - { name: button_text, label: Teks Tombol Daftar, widget: string }
 
+      - name: kontak
+        label: Halaman Kontak
+        file: src/data/kontak.json
+        format: json
+        fields:
+          - { name: title, label: Judul Halaman, widget: string }
+          - { name: address, label: Alamat, widget: text }
+          - { name: phone, label: Nomor Telepon, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: maps_embed, label: "Embed Maps URL (opsional)", widget: string, required: false }
+          - { name: wa_number, label: "Nomor WhatsApp (tanpa + atau 0, contoh: 6281808402439)", widget: string }
+          - { name: wa_text, label: Teks Pesan WhatsApp Otomatis, widget: string }
+
+      - name: jurusan
+        label: Halaman Jurusan / Akademik
+        file: src/data/jurusan.json
+        format: json
+        fields:
+          - { name: title, label: Judul Halaman, widget: string }
+          - { name: subtitle, label: Deskripsi Halaman, widget: text }
+          - name: jurusan
+            label: Daftar Jurusan
+            widget: list
+            fields:
+              - { name: nama, label: Nama Jurusan, widget: string }
+              - { name: icon, label: "Ikon (emoji)", widget: string }
+              - { name: gambar, label: Gambar Jurusan, widget: image, required: false }
+              - { name: deskripsi, label: Deskripsi Jurusan, widget: text }
+              - name: kompetensi
+                label: Daftar Kompetensi
+                widget: list
+
   # ─── BERITA ──────────────────────────────────────────────────────────────────
   - name: berita
     label: Berita Sekolah
